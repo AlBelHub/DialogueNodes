@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/DN_back.props" />
+</Project>
