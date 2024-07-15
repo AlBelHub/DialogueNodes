@@ -12,6 +12,16 @@ html, body
     height: 100vh;
 }
 
+.temp 
+{
+    position: absolute;
+    z-index: 1050;
+    height: 10rem;
+    width: 10rem;
+    background-color: lightblue;
+    top: 10rem;
+}
+
 .top-container
 {
     width: 100%;
