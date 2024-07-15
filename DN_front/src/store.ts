@@ -4,7 +4,7 @@ import initNodes from './flow_initState/nodes';
 import initEdges from './flow_initState/edges';
 import { addEdge, applyEdgeChanges, applyNodeChanges, Connection, Edge, Node, EdgeChange, NodeChange, OnConnect, OnEdgesChange, OnNodesChange } from 'reactflow';
 
-type FlowState = {
+export type FlowState = {
     nodes: Node[];
     edges: Edge[];
     onNodesChange: OnNodesChange;
@@ -34,10 +34,11 @@ const useStore = create<FlowState>((set, get) => ({
     },
     setNodes: (nodes: Node[]) => {
       set({ nodes });
+      console.log(nodes);
     },
     setEdges: (edges: Edge[]) => {
       set({ edges });
-    },
+    }
   }));
   
   export default useStore;
