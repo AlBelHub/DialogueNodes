@@ -3,21 +3,32 @@ import { useShallow } from 'zustand/react/shallow';
 import ReactFlow from 'reactflow';
 
 import TextUpdaterNode from './flow_nodes/textNode';
+import ChoiceNode from './flow_nodes/choiceNode';
 
 import 'reactflow/dist/base.css';
 
 
 import useStore from './store';
 
-const selector = (state) => ({
+import { FlowState } from './store';
+import EndDialogue from './flow_nodes/EndDialogue';
+import StartDialogue from './flow_nodes/StartDialogue';
+
+const selector = (state : FlowState) => ({
   nodes: state.nodes,
   edges: state.edges,
   onNodesChange: state.onNodesChange,
   onEdgesChange: state.onEdgesChange,
-  onConnect: state.onConnect,
+  onConnect: state.onConnect
 });
 
-const nodeTypes = { textUpdater: TextUpdaterNode };
+const nodeTypes = 
+{ 
+  textUpdater: TextUpdaterNode, 
+  ChoiceNode: ChoiceNode,
+  EndDialogue: EndDialogue,
+  StartDialogue: StartDialogue,
+};
 
 
 function Flow() {

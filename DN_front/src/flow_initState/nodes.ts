@@ -1,28 +1,37 @@
+import { nanoid } from 'nanoid';
 import { Node } from 'reactflow';
 
 export default [
   {
-    id: 'horizontal-1',
-    type: 'textUpdater',
+    id: "1",
+    type: 'StartDialogue',
+    data: { label: 'Input' },
+    targetPosition: 'left',
+    sourcePosition: 'right',
+    position: { x: -200, y: 0 },
+  },
+  {
+    id: "2",
+    type: 'ChoiceNode',
     data: { label: 'Input' },
     targetPosition: 'left',
     sourcePosition: 'right',
     position: { x: 0, y: 0 },
   },
-
   {
-    id: 'horizontal-2',
-    data: { label: 'Default' },
+    id: "3",
+    type: 'textUpdater',
+    data: { label: 'Input' },
     targetPosition: 'left',
     sourcePosition: 'right',
-    position: { x: 300, y: 0 },
+    position: { x: 200, y: 0 },
   },
   {
-    id: 'horizontal-3',
-    type: 'output',
-        targetPosition: 'left',
+    id: "4",
+    type: "EndDialogue",
+    data: { label: 'Default', type: "END" },
+    targetPosition: 'left',
     sourcePosition: 'right',
-    data: { label: 'Output' },
-    position: { x: 400, y: 0 },
+    position: { x: 500, y: 0 },
   },
 ] as Node[];

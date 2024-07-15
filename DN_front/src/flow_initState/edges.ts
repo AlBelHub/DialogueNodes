@@ -1,6 +1,8 @@
 import { Edge } from 'reactflow';
 
 export default [
-  { id: 'e1-2', source: 'horizontal-1', target: 'horizontal-2' },
-  { id: 'e2-3', source: 'horizontal-2', target: 'horizontal-3' },
+  { id: '1-2', source: '1', target: '2' },
+  { id: '2-3', source: '2', target: '3' },
+  { id: '3-4', source: '3', target: '4' },
+
 ] as Edge[];

@@ -1,20 +1,44 @@
-import React, { useState, useSyncExternalStore } from 'react';
-import { useShallow } from 'zustand/react/shallow';
-import ReactFlow from 'reactflow';
+import React, { useCallback, useEffect, useState } from 'react';
+import  { Edge, Node, useOnSelectionChange } from 'reactflow';
 import Flow from './Flow';
-import {data} from './ContextData/data';
-
-import TextUpdaterNode from './flow_nodes/textNode';
 
 import "./styles/App.scss";
-
+import MenuContext from './MenuContext';
+import useStore, { FlowState } from './store';
 
 
 function App() {
 
   const [menu, setMenu] = useState<Boolean>(false);
-  const [cursorData, setCursorData] = useState<Array<Number>>([0,0]);
+  const [cursorData, setCursorData] = useState<Array<number>>([0,0]);
+  
+  const [selectedNodes, setSelectedNodes] = useState<Node>();
+  const [selectedEdges, setSelectedEdges] = useState<Edge>();
 
+
+  //GET NODE ID
+
+  const selector = (state : FlowState) => ({
+    nodes: state.nodes,
+  });
+
+  const { nodes } = useStore(selector);
+  
+  let node = null;
+
+  if (selectedNodes) {
+    node = nodes.filter((item : Node) => item.id == selectedNodes)[0];
+  }
+  //
+
+  const onChange = useCallback(({ nodes, edges }) => {
+    setSelectedNodes(nodes.map((node) => node.id));
+    setSelectedEdges(edges.map((edge) => edge.id));
+  }, []);
+
+  useOnSelectionChange({
+    onChange,
+  });
 
   return (
     <>
@@ -28,19 +52,9 @@ function App() {
       
 
       {/* Context menu */}
-      {menu && (
-        <div className='context-menu' style={{left: cursorData[0] + "px", top: cursorData[1] + "px"}}>
-          {
-            data.map((item) => (
-              <div key={item.id} className="context-menu_element noselect">
-                {item.title}
-              </div>
-            ))
-          }
-        </div>
-      )}
+        <MenuContext menu={menu} cursorData={cursorData} />
       
-      {/* Container */}
+      {/* TOP Container */}
       <div className="top-container">
 
         <div className="company-attr">
@@ -52,6 +66,12 @@ function App() {
 
       </div>
 
+      {/* SELECTED NODE \ EDGE */}
+
+      <div className="temp">
+        <p>Selected node: {node ? node.type + " " + node.id : "mt"}</p>
+        <p>Selected edge: {selectedEdges}</p>
+      </div>
 
       {/* ReactFlow lives here */}
       <div className='flow-container'>
