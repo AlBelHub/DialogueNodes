@@ -5,7 +5,7 @@ export default [
   {
     id: "1",
     type: 'StartDialogue',
-    data: { label: 'Input' },
+    data: { label: '1' },
     targetPosition: 'left',
     sourcePosition: 'right',
     position: { x: -200, y: 0 },
@@ -13,7 +13,7 @@ export default [
   {
     id: "2",
     type: 'ChoiceNode',
-    data: { label: 'Input' },
+    data: { label: '2' },
     targetPosition: 'left',
     sourcePosition: 'right',
     position: { x: 0, y: 0 },
@@ -21,7 +21,7 @@ export default [
   {
     id: "3",
     type: 'textUpdater',
-    data: { label: 'Input' },
+    data: { label: '3' },
     targetPosition: 'left',
     sourcePosition: 'right',
     position: { x: 200, y: 0 },
@@ -29,7 +29,7 @@ export default [
   {
     id: "4",
     type: "EndDialogue",
-    data: { label: 'Default', type: "END" },
+    data: { label: '4', type: "END" },
     targetPosition: 'left',
     sourcePosition: 'right',
     position: { x: 500, y: 0 },
