@@ -36,6 +36,7 @@ export default function MenuContext({menu, cursorData}: importedProps)
         id: id,
         targetPosition: Position.Left,
         sourcePosition: Position.Right,
+        type: "ChoiceNode",
         data: { label: id },
         position: {x: position.x, y: position.y-40},
       };
