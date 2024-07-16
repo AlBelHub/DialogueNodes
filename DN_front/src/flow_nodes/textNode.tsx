@@ -15,12 +15,12 @@ function TextUpdaterNode({ data }) {
       <div className="node-container bc">
         
         <div className="node-container_header blue">
+          <Handle className="handle" type="target" position={Position.Left} />
           <p className='header'>TextNode</p>
+          <Handle className="handle" type="source" position={Position.Right} id="a" />
         </div>
         <div className="node-container_content">
-          <input id="text" name="text" onChange={onChange} className="nodrag" />
-          <Handle className="handle" type="target" position={Position.Left} />
-          <Handle className="handle" type="source" position={Position.Right} id="a" />
+          <input id="text" name="text" onChange={onChange} className="input-node" />
         </div>
         </div>
     </>

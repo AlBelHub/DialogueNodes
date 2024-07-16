@@ -15,11 +15,12 @@ function EndDialogue({ data }) {
       <div className="node-container bc">
         
         <div className="node-container_header red">
-          <p className='header'>ENDDialogue</p>
+          <Handle className='handle' type="target" position={Position.Left} />
+          <p className='header'>END dialogue</p>
+          <span></span>
         </div>
 
         <div className="node-container_content">
-          <Handle type="target" position={Position.Left} />
         </div>
 
         </div>

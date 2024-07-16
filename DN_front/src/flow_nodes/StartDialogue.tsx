@@ -18,11 +18,12 @@ function StartDialogue({ data }) {
       <div className="node-container bc">
         
         <div className="node-container_header green">
+          <span></span>
           <p className='header'>StartDialogue</p>
+          <Handle type="source" className='handle' position={Position.Right} id="a" />
         </div>
 
         <div className="node-container_content">
-          <Handle type="source" position={Position.Right} id="a" />
         </div>
 
         </div>
